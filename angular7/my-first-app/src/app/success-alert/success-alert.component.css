@@ -1,0 +1,15 @@
+h3{
+    color: green;
+}
+
+p {
+    color: limegreen;
+}
+
+p.hide{
+    display: none;
+}
+
+.white-text{
+    color: white;
+}

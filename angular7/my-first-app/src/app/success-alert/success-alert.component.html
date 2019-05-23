@@ -1,0 +1,21 @@
+<div class="content">
+    <div class="row">
+        
+            <h3>Success!</h3>
+            <p>This did work</p>
+
+    </div>
+</div>
+
+<hr>
+<button class = "btn btn-main" (click)="onShowButton()">Display Details</button>
+<p *ngIf="showButton">Secret password = true</p>
+<!-- <button class = "btn btn-main" (click)="showSecret=!showSecret">Display Details</button>
+<p *ngIf="showSecret">Secret password = true</p> -->
+
+<div
+    *ngFor="let click of clickNumber; let i = index"
+    [ngStyle]="{backgroundColor: i>=4 ? 'blue' : 'white'}"
+    [ngClass]="{'white-text': i>=4}"
+>{{click}}</div>
+
