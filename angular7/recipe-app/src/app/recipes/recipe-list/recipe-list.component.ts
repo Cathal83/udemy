@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipes.model';
-import { RecipeService } from '../recipe.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,19 +8,21 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
-  recipes: Recipe[];
+  recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'This is a test', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg'),
+    new Recipe('Second Test Recipe', 'This is second test', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg'),
+    new Recipe('Third Test Recipe', 'This is third test', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg')
+  ];
    
-  constructor(private recipeService: RecipeService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes();
   }
 
-  onNewRecipe(){
-    this.router.navigate(['new'],
-    {relativeTo: this.route});
+  onRecipeSelected(recipe: Recipe){
+    this.recipeWasSelected.emit(recipe);
+
   }
 }
