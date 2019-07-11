@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "../../../axios-orders";
+import { connect } from "react-redux";
 
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Button from "../../../components/UI/Button/Button";
@@ -103,7 +104,7 @@ class ContactData extends Component {
       ].value;
     }
     const order = {
-      ingredients: this.props.ingredients,
+      ingredients: this.props.ings,
       // In real app would calcaulate price on server to avoid users overriding
       price: this.props.price,
       orderData: formData
@@ -199,4 +200,11 @@ class ContactData extends Component {
   }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+  return {
+    ing: state.ingredients,
+    price: state.totalPrice.toFixed(2)
+  };
+};
+
+export default connect(mapStateToProps)(ContactData);
