@@ -21,7 +21,7 @@ export function* authUserSaga(action) {
     password: action.password,
     returnSecureToken: true
   };
-  const key = "AIzaSyDML1xGZjcWh8qYasoIeYTWw1fvUnpleys";
+  const key = "";
   let url =
     "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
     key;
