@@ -1,0 +1,21 @@
+td {
+  height: 50px;
+  width: 50px;
+}
+
+.black {
+  background: black;
+}
+
+.white {
+  background: white;
+}
+
+table,
+td {
+  border: 2px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
